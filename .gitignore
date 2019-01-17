@@ -3,3 +3,8 @@
 *.iws
 *.iml
 *.ipr
+
+.gradle/
+.vscode/
+/build/
+build/
