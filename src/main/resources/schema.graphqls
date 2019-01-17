@@ -9,4 +9,10 @@ type Query {
 
 schema {
     query: Query
+    mutation: LinkCreator
+
+}
+
+type LinkCreator {
+    createLink (url: String!, description: String!): Link
 }
