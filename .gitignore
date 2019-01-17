@@ -3,9 +3,3 @@
 *.iws
 *.iml
 *.ipr
-
-.gradle/
-.vscode/
-/build/
-build/
-!gradle/wrapper/gradle-wrapper.jar
