@@ -15,15 +15,4 @@ public class GraphQLJava {
         SpringApplication.run(GraphQLJava.class);
     }
 
-    @Bean
-    public CommandLineRunner commandLineRunner(ApplicationContext ctx) {
-        return args -> {
-            System.out.println("All the beans provided by SpringBoot");
-            String[] beanNames = ctx.getBeanDefinitionNames();
-            Arrays.sort(beanNames);
-            for (String beanName: beanNames){
-                System.out.println(beanName);
-            }
-        };
-    }
 }

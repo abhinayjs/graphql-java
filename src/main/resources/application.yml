@@ -1,0 +1,13 @@
+graphql:
+  servlet:
+    mapping: /graphql
+    enabled: true
+    corsEnabled: true
+
+spring:
+  profiles:
+    active: local
+
+server:
+  port: 8080
+

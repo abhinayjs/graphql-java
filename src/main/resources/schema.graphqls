@@ -1,12 +1,12 @@
-schema {
-    query: Query
-    mutation: Mutation
+type Link {
+    url: String!
+    description: String!
 }
 
 type Query {
-
+    allLinks: [Link]
 }
 
-type Mutation {
-
+schema {
+    query: Query
 }
