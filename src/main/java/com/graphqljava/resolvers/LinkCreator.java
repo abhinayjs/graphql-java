@@ -2,7 +2,7 @@ package com.graphqljava.resolvers;
 
 import com.coxautodev.graphql.tools.GraphQLMutationResolver;
 import com.graphqljava.domain.Link;
-import com.graphqljava.domain.LinkRepository;
+import com.graphqljava.repositories.LinkRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -18,7 +18,7 @@ public class LinkCreator implements GraphQLMutationResolver {
 
     public Link createLink(String url, String description) {
         Link newLink = new Link(url, description);
-        linkRepository.saveLink(newLink);
+        linkRepository.insert(newLink);
         return newLink;
     }
 }
