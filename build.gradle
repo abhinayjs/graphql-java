@@ -44,5 +44,8 @@ dependencies {
     compile 'com.graphql-java:graphql-java-tools:5.2.4'
     compile 'com.graphql-java:graphql-java-servlet'
 
+    compile("org.springframework.boot:spring-boot-starter-data-mongodb")
+
+
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }

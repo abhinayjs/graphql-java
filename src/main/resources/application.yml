@@ -5,6 +5,10 @@ graphql:
     corsEnabled: true
 
 spring:
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
   profiles:
     active: local
 
