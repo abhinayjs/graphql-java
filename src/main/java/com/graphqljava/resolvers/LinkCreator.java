@@ -5,6 +5,7 @@ import com.graphqljava.domain.AuthData;
 import com.graphqljava.domain.Link;
 import com.graphqljava.domain.SigninPayload;
 import com.graphqljava.domain.User;
+import com.graphqljava.errorhandlers.InvalidCredentialsException;
 import com.graphqljava.repositories.LinkRepository;
 import com.graphqljava.repositories.UserRepository;
 import graphql.GraphQLException;
@@ -40,6 +41,6 @@ public class LinkCreator implements GraphQLMutationResolver {
         if (user.getPassword().equals(authData.getPassword())){
             return new SigninPayload(user.getId(), user);
         }
-        throw new GraphQLException("Invalid Credentials");
+        throw new InvalidCredentialsException("Invalid Credentials");
     }
 }
