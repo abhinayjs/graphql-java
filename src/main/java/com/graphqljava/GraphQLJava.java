@@ -6,13 +6,14 @@ import graphql.GraphQLError;
 import graphql.servlet.GraphQLErrorHandler;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@SpringBootApplication
+@SpringBootApplication (exclude = {SecurityAutoConfiguration.class})
 public class GraphQLJava {
 
     public static void main(String[] args) {

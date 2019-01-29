@@ -36,7 +36,7 @@ public class LinkCreator implements GraphQLMutationResolver {
         return userRepository.insert(newUser);
     }
 
-    public SigninPayload signinUser(AuthData authData) throws IllegalAccessException {
+    public SigninPayload signinUser(AuthData authData) {
         User user = userRepository.findByEmail(authData.getEmail());
         if (user.getPassword().equals(authData.getPassword())){
             return new SigninPayload(user.getId(), user);
