@@ -15,15 +15,10 @@ import org.springframework.stereotype.Component;
 public class LinkCreator implements GraphQLMutationResolver {
 
     @Autowired
-    private final LinkRepository linkRepository;
+    LinkRepository linkRepository;
 
     @Autowired
-    private final UserRepository userRepository;
-
-    public LinkCreator(LinkRepository linkRepository, UserRepository userRepository) {
-        this.linkRepository = linkRepository;
-        this.userRepository = userRepository;
-    }
+    UserRepository userRepository;
 
     public Link createLink(String url, String description) {
         Link newLink = new Link(url, description);
