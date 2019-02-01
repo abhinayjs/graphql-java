@@ -8,7 +8,6 @@ import com.graphqljava.domain.User;
 import com.graphqljava.errorhandlers.InvalidCredentialsException;
 import com.graphqljava.repositories.LinkRepository;
 import com.graphqljava.repositories.UserRepository;
-import graphql.GraphQLException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
