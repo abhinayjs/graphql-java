@@ -4,6 +4,10 @@ import graphql.language.StringValue;
 import graphql.schema.*;
 import org.springframework.stereotype.Component;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 @Component
 public class DateTimeScalarType extends GraphQLScalarType {
 
@@ -11,7 +15,8 @@ public class DateTimeScalarType extends GraphQLScalarType {
         super("DateTime", "Date time scalar", new Coercing() {
             @Override
             public Object serialize(Object dataFetcherResult) throws CoercingSerializeException {
-                return dataFetcherResult;
+                DateFormat formattedDate = new SimpleDateFormat("dd MMM yyyy HH:mm:ss:SSS Z");
+                return formattedDate.format(new Date(dataFetcherResult.toString()));
             }
 
             @Override
