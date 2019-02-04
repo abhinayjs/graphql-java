@@ -37,12 +37,12 @@ type Query {
 
 schema {
     query: Query
-    mutation: LinkCreator
+    mutation: Mutation
 }
 
-type LinkCreator {
+type Mutation {
     createLink (url: String!, description: String!): Link
     createUser(name: String!, authProvider: AuthData!): User
     signinUser(auth: AuthData): SigninPayload
-#    createVote(linkId: ID!, userId: ID!): Vote
+    createVote(linkId: ID, userId: ID): Vote
 }

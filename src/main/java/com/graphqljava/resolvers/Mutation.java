@@ -1,24 +1,27 @@
 package com.graphqljava.resolvers;
 
 import com.coxautodev.graphql.tools.GraphQLMutationResolver;
-import com.graphqljava.domain.AuthData;
-import com.graphqljava.domain.Link;
-import com.graphqljava.domain.SigninPayload;
-import com.graphqljava.domain.User;
+import com.graphqljava.domain.*;
 import com.graphqljava.errorhandlers.InvalidCredentialsException;
 import com.graphqljava.repositories.LinkRepository;
 import com.graphqljava.repositories.UserRepository;
+import com.graphqljava.repositories.VoteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.Date;
+
 @Component
-public class LinkCreator implements GraphQLMutationResolver {
+public class Mutation implements GraphQLMutationResolver {
 
     @Autowired
     LinkRepository linkRepository;
 
     @Autowired
     UserRepository userRepository;
+
+    @Autowired
+    VoteRepository voteRepository;
 
     public Link createLink(String url, String description) {
         Link newLink = new Link(url, description);
@@ -36,5 +39,9 @@ public class LinkCreator implements GraphQLMutationResolver {
             return new SigninPayload(user.getId(), user);
         }
         throw new InvalidCredentialsException("Invalid Credentials");
+    }
+
+    public Vote createVote (String linkId, String userId) {
+        return voteRepository.insert(new Vote(new Date(), userId, linkId));
     }
 }

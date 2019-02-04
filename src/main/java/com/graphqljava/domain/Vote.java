@@ -2,20 +2,20 @@ package com.graphqljava.domain;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.time.ZonedDateTime;
+import java.util.Date;
 
 @Document(collection = "votes")
 public class Vote {
     private final String id;
-    private final ZonedDateTime createdAt;
+    private final Date createdAt;
     private final String userId;
     private final String linkId;
 
-    public Vote(ZonedDateTime createdAt, String userId, String linkId) {
+    public Vote(Date createdAt, String userId, String linkId) {
         this(null, createdAt, userId, linkId);
     }
 
-    public Vote(String id, ZonedDateTime createdAt, String userId, String linkId) {
+    public Vote(String id, Date createdAt, String userId, String linkId) {
         this.id = id;
         this.createdAt = createdAt;
         this.userId = userId;
@@ -26,7 +26,7 @@ public class Vote {
         return id;
     }
 
-    public ZonedDateTime getCreatedAt() {
+    public Date getCreatedAt() {
         return createdAt;
     }
 

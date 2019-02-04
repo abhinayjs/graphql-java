@@ -7,7 +7,9 @@ import com.graphqljava.domain.Vote;
 import com.graphqljava.repositories.LinkRepository;
 import com.graphqljava.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class VoteResolver implements GraphQLResolver<Vote> {
     @Autowired
     LinkRepository linkRepository;

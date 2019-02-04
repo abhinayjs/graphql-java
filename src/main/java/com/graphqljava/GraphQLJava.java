@@ -1,6 +1,7 @@
 package com.graphqljava;
 
 import com.graphqljava.errorhandlers.ApplicationErrorAdapter;
+import com.graphqljava.scalars.DateTimeScalarType;
 import graphql.ExceptionWhileDataFetching;
 import graphql.GraphQLError;
 import graphql.servlet.GraphQLErrorHandler;
@@ -18,6 +19,11 @@ public class GraphQLJava {
 
     public static void main(String[] args) {
         SpringApplication.run(GraphQLJava.class);
+    }
+
+    @Bean
+    public DateTimeScalarType dateTimeScalarType() {
+        return new DateTimeScalarType();
     }
 
     @Bean
