@@ -1,15 +1,22 @@
 package com.graphqljava.domain;
 
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import java.time.ZonedDateTime;
 
+@Document(collection = "votes")
 public class Vote {
-
-    private String id;
-    private ZonedDateTime createdAt;
-    private String userId;
-    private String linkId;
+    private final String id;
+    private final ZonedDateTime createdAt;
+    private final String userId;
+    private final String linkId;
 
     public Vote(ZonedDateTime createdAt, String userId, String linkId) {
+        this(null, createdAt, userId, linkId);
+    }
+
+    public Vote(String id, ZonedDateTime createdAt, String userId, String linkId) {
+        this.id = id;
         this.createdAt = createdAt;
         this.userId = userId;
         this.linkId = linkId;
