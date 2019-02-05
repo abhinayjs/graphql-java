@@ -22,11 +22,6 @@ public class GraphQLJava {
     }
 
     @Bean
-    public DateTimeScalarType dateTimeScalarType() {
-        return new DateTimeScalarType();
-    }
-
-    @Bean
     public GraphQLErrorHandler errorHandler(){
         return new GraphQLErrorHandler() {
             @Override
